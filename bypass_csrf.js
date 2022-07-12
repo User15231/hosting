@@ -6,10 +6,10 @@ var token = form.xsrf.value;
 form.xsrf.value = "";
 
 document.body.innerHTML +=
-	 '<form id="myform" action="https://redhatdev.compunnel.com/platform/admin/" method="POST">'
+	 '<form id="myform" action="https://redhatdev.compunnel.com/platform/admin/login/" method="POST">'
 	+'<input type="text" name="login" value="user">'
 	+'<input type="password" name="password" value="redhat">'
-	+'<input type="hidden" name="next" value="">'
+	+'<input type="hidden" name="next" value="https://redhatdev.compunnel.com/platform/admin/">'
 	+'<input type="hidden" name="xsrf" value="' + token + '">'
 	+'</form>';
 
