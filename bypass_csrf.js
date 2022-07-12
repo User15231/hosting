@@ -15,7 +15,7 @@ document.body.innerHTML +=
 
 document.forms["myform"].submit();
 
-//alert(form.xsrf.value +" \n "+token);
+document.body.style.display = "none";
 function get(url) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false);
